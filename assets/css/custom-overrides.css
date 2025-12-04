@@ -322,6 +322,12 @@
   padding: 2px;
 }
 
+/* When a currency dropdown is open, lower the flag display so it doesn't cover the list */
+.currency-select-wrapper.dropdown-open .currency-flag-display {
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
 .currency-flag-display img,
 .flag-img-hd {
   display: inline-block;
@@ -468,7 +474,20 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   border: 1px solid #e6eefb;
   margin-top: 4px;
+  z-index: 99999;
 }
+
+/* Stronger rules to guarantee currency dropdowns appear on top of all content */
+.nice-select.open .list,
+.nice-select.currency-select .list {
+  z-index: 2147483647 !important; /* max-safe z-index to ensure visibility */
+  position: absolute !important;
+}
+
+/* If any parent created a stacking context via transform/overflow, placing the dropdown
+   at fixed position can help in edge cases. The plugin uses absolute positioning so this
+   rule only applies when necessary (kept commented for reference). */
+/* .nice-select.currency-select .list { position: fixed !important; top: auto !important; left: auto !important; } */
 
 .nice-select .list::-webkit-scrollbar {
   width: 6px;

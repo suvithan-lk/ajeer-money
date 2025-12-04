@@ -1583,6 +1583,48 @@
             });
         })();
     </script>
+    <script>
+        (function(){
+            if (!window.jQuery) return;
+            jQuery(function(){
+                // Toggle a class on the wrapper when a nice-select currency dropdown is opened
+                jQuery(document).on('click', '.nice-select.currency-select', function(e){
+                    var $nice = jQuery(this);
+                    var $wrapper = $nice.closest('.currency-select-wrapper');
+                    // Close any other open wrapper
+                    jQuery('.currency-select-wrapper.dropdown-open').not($wrapper).removeClass('dropdown-open');
+                    // Toggle current
+                    $wrapper.toggleClass('dropdown-open');
+                });
+
+                // When user clicks an option, close the wrapper class (dropdown closed)
+                jQuery(document).on('click', '.nice-select .option', function(){
+                    jQuery('.currency-select-wrapper.dropdown-open').removeClass('dropdown-open');
+                });
+
+                // Click outside closes any open wrapper
+                jQuery(document).on('click', function(e){
+                    if (!jQuery(e.target).closest('.currency-select-wrapper, .nice-select').length) {
+                        jQuery('.currency-select-wrapper.dropdown-open').removeClass('dropdown-open');
+                    }
+                });
+            });
+        })();
+    </script>
+    <script>
+        // Hide the "Paying with" quote-row (payment method) on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                document.querySelectorAll('.payment-method').forEach(function(pm){
+                    var row = pm.closest('.quote-row');
+                    if (row) row.style.display = 'none';
+                });
+            } catch (e) {
+                // fail silently
+                console.error(e);
+            }
+        });
+    </script>
 </body>
 
 
