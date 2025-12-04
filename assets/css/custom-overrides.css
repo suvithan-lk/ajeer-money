@@ -4,9 +4,30 @@
 */
 
 :root {
-  --cw-white: #ffffff;
-  --cw-primary: #25ba9a;
-  --cw-accent: #e6ff94;
+  /* New theme palette (provided) */
+  --charcoal-blue: #2B4152ff;
+  --pale-slate: #B4B9BFff;
+  --bright-snow: #FAFAFAff;
+  --ocean-mist: #2DC0A3ff;
+  --frozen-water: #C4E0DDff;
+
+  /* Map existing commonly used variables to the new palette */
+  --cw-white: var(--bright-snow);
+  --cw-primary: var(--ocean-mist);
+  --cw-accent: var(--frozen-water);
+
+  /* Global theme variables used across the template */
+  --body-color: var(--bright-snow);
+  --primary-color: var(--charcoal-blue);
+  --secondary-color: var(--ocean-mist);
+  --head-color: var(--charcoal-blue);
+  --para-color: var(--charcoal-blue);
+
+  /* Bootstrap variable override (makes components that rely on --bs-white use bright-snow)
+     This helps replace many '#fff' backgrounds without editing each rule. */
+  --bs-white: var(--bright-snow);
+  /* Default icon color used for inline icons inside feature boxes */
+  --icon-color: #2b3d4f;
 }
 
 .single-item,
@@ -47,6 +68,19 @@
   justify-content: space-between;
   gap: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Make app store and google play badges visually identical height */
+.brand-area img {
+  height: 48px; /* choose a comfortable, consistent height */
+  width: auto;
+  display: inline-block;
+}
+
+@media (max-width: 576px) {
+  .brand-area img {
+    height: 40px;
+  }
 }
 
 .promo-carousel .promo-card h3 {
@@ -715,6 +749,76 @@
   border-radius: 12px;
 }
 
+/* Apply bright-snow as the default card/background color for common components
+   This reduces occurrences of pure white backgrounds across the site. */
+.single-item,
+.promo-card,
+.promo-media,
+.send-money,
+.quote-card,
+.fees-box,
+.newsletter,
+.country-item,
+.country-search-box,
+.chat-window,
+.chat-input-area,
+.nice-select,
+.nice-select .list,
+.promo-carousel .promo-card,
+.footer-section .newsletter {
+  background-color: var(--bright-snow) !important;
+  color: var(--charcoal-blue) !important;
+}
+
+/* Make primary buttons use the new ocean-mist accent */
+.cmn-btn.primary {
+  background: var(--ocean-mist) !important;
+  color: var(--bright-snow) !important;
+}
+
+/* User requested: make buttons dark (#2b3d4f) across the site */
+:root {
+  --button-bg: #2b3d4f;
+  --button-bg-hover: #25323f;
+  --button-text: var(--bright-snow);
+}
+
+/* Apply dark button color to common button classes */
+.cmn-btn,
+.send-btn,
+.chat-send-btn,
+.promo-carousel .cmn-btn,
+.cmn-btn.primary,
+.cmn-btn.active {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border-color: transparent !important;
+}
+
+/* Outline buttons keep transparent background but use dark color for border/text */
+.cmn-btn.outline {
+  background: transparent !important;
+  color: var(--button-bg) !important;
+  border: 2px solid rgba(43,61,79,0.12) !important;
+}
+
+/* Hover/focus states */
+.cmn-btn:hover,
+.cmn-btn:focus,
+.send-btn:hover,
+.chat-send-btn:hover,
+.cmn-btn.primary:hover {
+  background: var(--button-bg-hover) !important;
+  color: var(--button-text) !important;
+}
+
+/* Small accessibility tweak: ensure disabled buttons show muted look */
+.cmn-btn:disabled,
+.cmn-btn[disabled] {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+}
+
 /* Country Selection Section Styles */
 .country-selection-section {
   background-color: #0a0e27;
@@ -1115,7 +1219,7 @@
   justify-content: center !important;
   border-radius: 10px !important;
   background: rgba(37, 186, 154, 0.12) !important;
-  color: var(--cw-primary) !important;
+  color: var(--icon-color) !important;
   font-size: 20px !important;
   flex-shrink: 0 !important;
 }
@@ -1130,6 +1234,7 @@
   -moz-osx-font-smoothing: grayscale !important;
   font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "Font Awesome 5 Pro", sans-serif !important;
   font-weight: 900 !important;
+  color: inherit !important;
 }
 
 .banner-section .hero-features .feature-item .feature-icon img {
