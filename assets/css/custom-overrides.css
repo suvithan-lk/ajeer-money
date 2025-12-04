@@ -1,0 +1,671 @@
+/* custom-overrides.css
+   Remove borders and box-shadows from common "card" elements used across the template.
+   Add or adjust selectors below if you want to target different elements.
+*/
+
+:root {
+  --cw-white: #ffffff;
+  --cw-primary: #25ba9a;
+  --cw-accent: #e6ff94;
+}
+
+.single-item,
+.single-area,
+.single-content,
+.send-money,
+.newsletter,
+.testimonials .single-slide,
+.our-solutions .single-item,
+.global-payment .single-item,
+.app-download .single-item,
+.accordion-item {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide entire Testimonials section when requested */
+.testimonials {
+  display: none !important;
+}
+
+/* Hide the Global Payment ("Send money in a heartbeat") section */
+.global-payment {
+  display: none !important;
+}
+
+/* Promo carousel styles */
+.promo-carousel-section {
+  padding: 30px 0;
+}
+.promo-carousel .promo-card {
+  background: linear-gradient(135deg, var(--cw-white) 0%, #f7f9fc 100%);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06) !important;
+}
+.promo-carousel .promo-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+.promo-carousel .promo-card p {
+  margin: 0 0 12px 0;
+  color: #6b7280;
+}
+.promo-carousel .promo-media img {
+  max-height: 70px;
+  width: auto;
+}
+
+/* keep promo responsive */
+@media (max-width: 768px) {
+  .promo-carousel .promo-card { flex-direction: column; text-align: center; }
+  .promo-carousel .promo-media { margin-top: 10px; }
+}
+
+/* Slick carousel fixes: position arrows, horizontal dots, hide textual buttons */
+.promo-carousel { position: relative; }
+.promo-carousel .promo-slide { padding: 10px 0; }
+.promo-carousel .promo-card { width: 100%; box-sizing: border-box; }
+
+/* Style arrows */
+.promo-carousel .slick-prev,
+.promo-carousel .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-indent: -9999px; /* hide any textual label */
+  overflow: hidden;
+}
+.promo-carousel .slick-prev { left: 12px; }
+.promo-carousel .slick-next { right: 12px; }
+.promo-carousel .slick-prev:before,
+.promo-carousel .slick-next:before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #0f172a;
+  border-right: 2px solid #0f172a;
+}
+.promo-carousel .slick-prev:before { transform: rotate(-135deg); }
+.promo-carousel .slick-next:before { transform: rotate(45deg); }
+
+/* Dots: horizontal and styled */
+.promo-carousel .slick-dots { display:flex !important; gap:12px; justify-content:center; padding: 12px 0 0; margin:0; list-style:none; }
+.promo-carousel .slick-dots li { display:inline-block; width:auto; height:auto; }
+.promo-carousel .slick-dots li button { width:12px; height:12px; border-radius:50%; background:#e6eefb; border:none; padding:0; text-indent: -9999px; }
+.promo-carousel .slick-dots li.slick-active button { background:#2b6cb0; }
+
+/* Ensure promo-media doesn't show alt text if image missing and reserve space */
+.promo-carousel .promo-media { min-width:90px; display:flex; align-items:center; justify-content:center; color: transparent; }
+.promo-carousel .promo-media img { display:block; max-height:70px; width:auto; }
+
+/* Make card content align nicely */
+.promo-carousel .promo-card { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px; }
+.promo-carousel .promo-text { flex:1 1 auto; }
+.promo-carousel .promo-text h3 { font-size:20px; margin-bottom:8px; }
+.promo-carousel .promo-text p { margin-bottom:12px; color:#6b7280; }
+
+@media (max-width: 768px) {
+  .promo-carousel .promo-card { flex-direction:column; padding:18px; }
+  .promo-carousel .promo-media { margin-top:12px; min-width:unset; }
+}
+.quote-badges { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
+.badge.small { background: transparent !important; color:#374151; padding:6px 10px; border-radius:14px; font-size:12px; display:inline-flex; align-items:center; gap:8px; box-shadow: none !important; border: none !important; }
+.badge.small i { font-size:12px; color:#374151; }
+.rate-pill { background: transparent !important; color:#0f172a; padding:8px 12px; border-radius:18px; font-size:13px; display:inline-flex; align-items:center; box-shadow: none !important; border: none !important; }
+.rate-pill strong { font-weight:700; margin-left:6px; }
+.quote-row { margin-bottom:10px; }
+.quote-row .label { display:block; font-weight:600; color:#334155; margin-bottom:6px; font-size:13px; }
+.input-row { display:flex; gap:8px; align-items:center; }
+.amount-input { flex:1 1 auto; padding:12px 14px; border:1px solid #e6eefb; border-radius:8px; font-size:20px; line-height:1; }
+.amount-input.recipient { font-weight:700; }
+.currency-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.currency-flag-display {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px; /* larger emoji fallback size */
+  pointer-events: none;
+  z-index: 2;
+  line-height: 1;
+  transition: none;
+}
+
+.currency-flag-display img {
+  display: inline-block;
+  height: 24px; /* larger image flags */
+  width: auto;
+  vertical-align: middle;
+}
+
+.country-dropdown-wrapper {
+    margin-top: 20px;
+}
+
+.country-dropdown-wrapper .label {
+    font-weight: 600;
+    color: #334155;
+    font-size: 14px;
+}
+
+.country-select {
+  width: 100% !important;
+  min-width: 200px;
+  padding-left: 56px !important; /* allow space for larger flag */
+}
+
+.currency-select { 
+  width:120px; 
+  padding:10px 8px 10px 56px; 
+    border-radius:8px; 
+    border:1px solid #e6eefb; 
+    background:#fff; 
+    font-size:14px; 
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+/* If a custom nice-select is used, make sure the rendered control aligns with the flag */
+.nice-select.currency-select {
+  padding-left: 56px !important;
+}
+.nice-select.currency-select .current {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nice-select.currency-select .current::before {
+  /* reserve space so the emoji/image appears visually aligned */
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: -56px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Style for select options with flags */
+.currency-select option {
+    padding: 8px;
+}
+
+/* Custom dropdown styling for better flag visibility */
+.currency-select:focus,
+.country-select:focus,
+.nice-select.currency-select:focus {
+  outline: none;
+  /* keep a subtle border but remove the large green focus ring */
+  border-color: var(--cw-primary);
+  box-shadow: none !important;
+}
+.payment-method { display:flex; align-items:center; justify-content:space-between; padding:8px 10px; border-radius:8px; border:1px solid #eef2ff; }
+.method-left { display:flex; align-items:center; gap:8px; }
+.method-left i { font-size:18px; color:#1f2937; }
+.change-btn { background:transparent; border:none; color:#0f172a; padding:6px 10px; border-radius:8px; }
+.fees-box { background:var(--cw-white); border-radius:8px; padding:10px; border:1px solid #f1f5f9; margin-bottom:10px; }
+.fees-row { display:flex; justify-content:space-between; color:#475569; margin-bottom:6px; font-size:14px; }
+.fees-total { margin-top:6px; font-weight:700; color:#0f172a; font-size:15px; }
+.warning-box { background:#fff9eb; border-radius:8px; padding:10px 12px; display:flex; gap:10px; align-items:flex-start; color:#78350f; margin-bottom:12px; border:1px solid rgba(249,205,77,0.3); font-size:13px; }
+.warning-box i { color:#f59e0b; font-size:18px; margin-top:2px; }
+.quote-footer { display:flex; flex-direction:column; gap:8px; }
+.small-muted { color:#64748b; font-size:12px; }
+.send-btn { background:var(--cw-primary); border:none; padding:12px 16px; border-radius:26px; font-weight:700; color: var(--cw-white) !important; font-size:16px; width:100%; }
+
+@media (max-width: 992px) {
+  .quote-card { max-width:100%; }
+}
+
+/* Mobile: make hero CTA buttons stack and be easy to tap */
+@media (max-width: 576px) {
+  .bottom-area { display:flex; flex-direction:column; gap:10px; align-items:stretch; }
+  .bottom-area .cmn-btn {
+    display:block !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+    padding:14px 16px !important;
+    font-size:16px !important;
+    line-height:1 !important;
+    border-radius:10px !important;
+    text-align:center !important;
+  }
+  .bottom-area .cmn-btn + .cmn-btn { margin-top:0 !important; }
+  /* primary vs outline explicit classes */
+  .bottom-area .cmn-btn.primary { background:var(--cw-primary) !important; color:var(--cw-white) !important; border:none !important; }
+  .bottom-area .cmn-btn.outline { background:transparent !important; border:1px solid rgba(15,23,42,0.08) !important; color:inherit !important; }
+}
+
+/* Global: primary and outline button styles (desktop + mobile overrides) */
+.cmn-btn.primary {
+  background: var(--cw-primary) !important;
+  color: var(--cw-white) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.cmn-btn.primary:hover,
+.cmn-btn.primary:focus {
+  background: #20a884 !important;
+  color: #fff !important;
+}
+.cmn-btn.outline {
+  background: transparent !important;
+  color: var(--cw-primary) !important;
+  border: 2px solid rgba(37,186,154,0.15) !important;
+}
+.cmn-btn.outline:hover,
+.cmn-btn.outline:focus {
+  background: rgba(37,186,154,0.06) !important;
+}
+
+/* Ensure the desktop hero buttons have comfortable padding and rounded corners */
+.bottom-area .cmn-btn { padding: 10px 20px !important; border-radius: 10px !important; font-weight:700 !important; }
+
+
+/* Remove unwanted borders and shadows inside the promo carousel */
+.promo-carousel .promo-card,
+.promo-carousel .slick-list,
+.promo-carousel .slick-slide,
+.promo-carousel .slick-prev,
+.promo-carousel .slick-next,
+.promo-carousel .slick-dots li button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Make arrow backgrounds transparent but keep arrow glyphs */
+.promo-carousel .slick-prev,
+.promo-carousel .slick-next {
+  background: transparent !important;
+}
+
+/* Keep dots visible but without extra borders/shadows */
+.promo-carousel .slick-dots li button {
+  background: #e6eefb !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Ensure the card still has comfortable padding and subtle radius (no border) */
+.promo-carousel .promo-card { border-radius: 12px; }
+
+/* Country Selection Section Styles */
+.country-selection-section {
+    background-color: #f8fafc;
+}
+
+.country-selection-section .section-header {
+    margin-bottom: 40px;
+}
+
+.country-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--cw-white);
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e6eefb;
+}
+
+.country-search-box i.fa-search {
+    color: #94a3b8;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.country-search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #1e293b;
+    background: transparent;
+    padding: 0;
+}
+
+.country-search-box input::placeholder {
+    color: #94a3b8;
+}
+
+.country-search-box .clear-search {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.country-search-box .clear-search:hover {
+    color: #64748b;
+    background: #f1f5f9;
+}
+
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.country-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    background: var(--cw-white);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+}
+
+.country-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(37, 186, 154, 0.15);
+    border-color: var(--cw-primary);
+}
+
+.country-flag {
+    font-size: 48px;
+    margin-bottom: 12px;
+    line-height: 1;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 50%;
+    border: 2px solid #e6eefb;
+    transition: all 0.3s ease;
+}
+
+.country-item:hover .country-flag {
+    border-color: var(--cw-primary);
+    background: rgba(37, 186, 154, 0.05);
+}
+
+.country-link {
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    text-align: center;
+    word-break: break-word;
+}
+
+.country-link:hover {
+    color: var(--cw-primary);
+    text-decoration: underline;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #64748b;
+    font-size: 16px;
+}
+
+.no-results p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+    }
+    
+
+/* Hero feature icons (secure, safety, easy transfer, global, support)
+   Use a compact layout with a responsive minimum width so features
+   remain side-by-side on narrow hero columns. Also provide a fallback
+   flex rule when the template adds utility classes like `.d-flex`. */
+.banner-section .hero-features {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px 10px !important;
+  margin-top: 12px !important;
+  align-items: center !important;
+}
+.banner-section .hero-features.d-flex {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px 12px !important;
+  align-items: center !important;
+}
+.banner-section .hero-features .feature-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-height: 40px;
+}
+.banner-section .hero-features .feature-item .feature-icon {
+  display: inline-flex !important;
+  width: 40px !important;
+  height: 40px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  background: rgba(37,186,154,0.12) !important;
+  color: var(--cw-primary) !important;
+  font-size: 22px !important;
+  flex: 0 0 auto !important;
+}
+.banner-section .hero-features .feature-item .feature-icon i,
+.banner-section .hero-features .feature-item .feature-icon .fa,
+.banner-section .hero-features .feature-item .feature-icon .fas {
+  font-size: inherit !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+/* Ensure FontAwesome classes aren't accidentally overwritten by the theme */
+.banner-section .hero-features .feature-item .feature-icon .fas,
+.banner-section .hero-features .feature-item .feature-icon .fa {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "Font Awesome 5 Pro", sans-serif !important;
+  font-weight: 900 !important;
+}
+/* Image / emoji fallback sizing */
+.banner-section .hero-features .feature-item .feature-icon img {
+  height: 20px !important;
+  width: auto !important;
+}
+.banner-section .hero-features .feature-text { line-height: 1 !important; }
+.banner-section .hero-features .feature-title { font-weight:700 !important; color:#0f172a !important; font-size:13px !important; }
+.banner-section .hero-features .feature-sub { font-size:12px !important; color:#64748b !important; }
+
+@media (max-width: 768px) {
+  .banner-section .hero-features { grid-template-columns: repeat(2, 1fr) !important; gap:10px 12px !important; }
+  .banner-section .hero-features .feature-item .feature-icon { width:32px !important; height:32px !important; font-size:14px !important; }
+  .banner-section .hero-features .feature-item { min-height: 40px; }
+}
+    .country-item {
+        padding: 16px 12px;
+    }
+    
+    .country-flag {
+        font-size: 40px;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 10px;
+    }
+    
+    .country-link {
+        font-size: 13px;
+    }
+    
+    .country-search-box {
+        padding: 10px 14px;
+    }
+    
+    .country-search-box input {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 12px;
+    }
+    
+    .country-item {
+        padding: 12px 8px;
+    }
+    
+    .country-flag {
+        font-size: 36px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 8px;
+    }
+    
+    .country-link {
+
+/* Banner human (banner-human.png, .obj-2) positioning and responsive sizing
+   - Places the human illustration slightly left and behind the hero card on large screens
+   - Keeps the hero content above the illustration using z-index
+   - Stacks the human image above content on small screens for better layout
+*/
+.banner-section .shape-area { position: relative; overflow: visible; }
+.banner-section .banner-content { position: relative; z-index: 3; }
+.banner-section .shape-area .obj-2 {
+  position: absolute;
+  left: -72px; /* nudges the human slightly off the canvas to the left */
+  bottom: -6px; /* align feet near bottom */
+  width: 420px; /* base desktop size */
+  max-width: 46%;
+  height: auto;
+  z-index: 1; /* behind banner-content which has z-index:3 */
+  pointer-events: none;
+  transform-origin: left bottom;
+}
+
+/* Improve separation: elevate the quote card and soften the human illustration
+   - stronger shadow + subtle backdrop to make the card pop
+   - slightly reduce human opacity so text reads easier
+*/
+.banner-section .quote-card {
+  position: relative;
+  z-index: 6;
+  background: rgba(255,255,255,0.98);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(2,6,23,0.10), 0 4px 12px rgba(2,6,23,0.06) !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.banner-section .shape-area .obj-2 {
+  /* soften the illustration so foreground card stands out */
+  opacity: 0.92;
+  filter: saturate(0.98) contrast(0.98);
+}
+
+@media (max-width: 1400px) {
+  .banner-section .shape-area .obj-2 { left: -56px; width: 360px; max-width: 42%; }
+}
+
+@media (max-width: 992px) {
+  .banner-section .shape-area .obj-2 { left: -28px; width: 300px; max-width: 40%; }
+}
+
+@media (max-width: 768px) {
+  /* On smaller tablets/phones we stack the illustration above/beside content */
+  .banner-section .shape-area .obj-2 {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: block;
+    margin: 0 auto 12px auto;
+    width: 220px;
+    max-width: 70%;
+    z-index: 0;
+  }
+  .banner-section .banner-content { z-index: 4; }
+}
+
+        font-size: 12px;
+    }
+}
+
+/* Spline embed wrapper: crop and scale the iframe so the lower 'water' area is hidden
+   - The iframe is cross-origin; we cannot remove elements inside it. We crop/translate
+     the visible area here to hide the unwanted section visually. */
+.spline-embed-wrapper {
+  width: 100%;
+  max-width: 480px; /* control visible size */
+  height: 260px; /* visible height */
+  margin: 18px auto 32px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.08);
+  background: #f8fafc;
+}
+.spline-embed-wrapper .spline-embed {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform-origin: top center;
+  /* enlarge and shift up so lower water is out of view */
+  transform: translateX(-50%) translateY(-18%) scale(1.2);
+  width: 120%;
+  height: 120%;
+  border: none;
+}
+.spline-embed-wrapper .spline-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  background: rgba(15,23,42,0.06);
+  color: #0f172a;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .spline-embed-wrapper { max-width: 360px; height:200px; }
+  .spline-embed-wrapper .spline-embed { transform: translateX(-50%) translateY(-16%) scale(1.15); }
+}
