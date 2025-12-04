@@ -9,10 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ajeer Money
-
-    </title>
-
+    
+    <title>Ajeer Money</title>
+    
     <link rel="shortcut icon" href="assets/images/fav.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
@@ -25,6 +24,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/custom-overrides.css">
     <link rel="stylesheet" href="assets/css/style-rtl.min.css" id="rtl-stylesheet" disabled>
+
 </head>
 
 <body>
@@ -261,7 +261,9 @@
                                         <div class="input-row">
                                             <input type="text" class="amount-input" value="1,000">
                                             <div class="currency-select-wrapper">
-                                                <span class="currency-flag-display" id="sendCurrencyFlag"><img src="https://flagcdn.com/w80/us.png" alt="USD" class="flag-img-hd"></span>
+                                                <span class="currency-flag-display" id="sendCurrencyFlag"><img
+                                                        src="https://flagcdn.com/w80/us.png" alt="USD"
+                                                        class="flag-img-hd"></span>
                                                 <select class="currency-select" id="sendCurrency">
                                                     <option value="USD" data-flag="us">USD</option>
                                                     <option value="GBP" data-flag="gb">GBP</option>
@@ -283,7 +285,9 @@
                                         <div class="input-row">
                                             <input type="text" class="amount-input recipient" value="306,388.47">
                                             <div class="currency-select-wrapper">
-                                                <span class="currency-flag-display" id="receiveCurrencyFlag"><img src="https://flagcdn.com/w80/lk.png" alt="LKR" class="flag-img-hd"></span>
+                                                <span class="currency-flag-display" id="receiveCurrencyFlag"><img
+                                                        src="https://flagcdn.com/w80/lk.png" alt="LKR"
+                                                        class="flag-img-hd"></span>
                                                 <select class="currency-select" id="receiveCurrency">
                                                     <option value="LKR" data-flag="lk">LKR</option>
                                                     <option value="USD" data-flag="us">USD</option>
@@ -394,9 +398,9 @@
     <section class="country-selection-section">
         <div class="overlay pt-120 pb-120 position-relative">
             <div class="spline-background">
-                <iframe 
-                    src='https://my.spline.design/holographicearthwithdynamiclines-IfQMsxj6KqpV9PzSRaBJZ2mx/' 
-                    frameborder='0' allow="autoplay; fullscreen; xr-spatial-tracking" class="spline-iframe" style="width: 100%; height: 100%;">
+                <iframe src='https://my.spline.design/holographicearthwithdynamiclines-IfQMsxj6KqpV9PzSRaBJZ2mx/'
+                    frameborder='0' allow="autoplay; fullscreen; xr-spatial-tracking" class="spline-iframe"
+                    style="width: 100%; height: 100%;">
                 </iframe>
                 <div class="spline-overlay"></div>
             </div>
@@ -923,7 +927,7 @@
     <footer class="footer-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10"> 
+                <div class="col-lg-10">
                     <div class="newsletter" style="border: 2px solid #2b3d4f;">
                         <div class="section-area mb-30 dark-sec text-center">
                             <h3 class="title">Subscribe to Our Newsletter</h3>
@@ -1251,18 +1255,18 @@
             function _setFlagContent(flagDisplay, flag) {
                 if (!flagDisplay) return;
                 if (!flag) { flagDisplay.innerHTML = ''; return; }
-                
+
                 // If flag is already a full URL or path, use it directly with HD quality
                 if (flag.indexOf('http') === 0 || flag.indexOf('/') === 0 || flag.indexOf('assets') === 0) {
                     // Replace w20 with w80 for HD quality if it's a flagcdn URL
                     const hdFlag = flag.replace(/w20/g, 'w80').replace(/w40/g, 'w80');
                     flagDisplay.innerHTML = '<img src="' + hdFlag + '" alt="flag" class="flag-img-hd">';
-                } 
+                }
                 // If flag is a country code (2 letters), use flagcdn.com with HD quality
                 else if (flag.length === 2 || flag.length === 3) {
                     const countryCode = flag.toLowerCase();
                     flagDisplay.innerHTML = '<img src="https://flagcdn.com/w80/' + countryCode + '.png" alt="flag" class="flag-img-hd" onerror="this.style.display=\'none\'">';
-                } 
+                }
                 // Otherwise, treat as emoji or text
                 else {
                     flagDisplay.textContent = flag;
@@ -1307,38 +1311,38 @@
             document.addEventListener('DOMContentLoaded', function () {
                 updateCurrencyFlag('sendCurrency', 'sendCurrencyFlag');
                 updateCurrencyFlag('receiveCurrency', 'receiveCurrencyFlag');
-                
+
                 // Add flags to nice-select dropdown options
                 function addFlagsToNiceSelect() {
                     const selects = ['sendCurrency', 'receiveCurrency'];
                     selects.forEach(selectId => {
                         const select = document.getElementById(selectId);
                         if (!select) return;
-                        
+
                         const niceSelect = select.nextElementSibling;
                         if (!niceSelect || !niceSelect.classList.contains('nice-select')) return;
-                        
+
                         const options = niceSelect.querySelectorAll('.option');
                         const selectOptions = select.querySelectorAll('option');
-                        
+
                         options.forEach((option, index) => {
                             if (selectOptions[index]) {
                                 const flagCode = selectOptions[index].getAttribute('data-flag');
                                 if (flagCode) {
                                     // Skip if flag already exists
                                     if (option.querySelector('.option-flag')) return;
-                                    
+
                                     // Create flag element with HD quality
                                     const flagImg = document.createElement('img');
                                     flagImg.src = `https://flagcdn.com/w160/${flagCode.toLowerCase()}.png`;
                                     flagImg.alt = flagCode;
                                     flagImg.className = 'option-flag';
                                     flagImg.loading = 'eager';
-                                    flagImg.onerror = function() { 
+                                    flagImg.onerror = function () {
                                         // Fallback to smaller size if w160 fails
                                         this.src = `https://flagcdn.com/w80/${flagCode.toLowerCase()}.png`;
                                     };
-                                    
+
                                     // Get the text content
                                     const textContent = option.textContent.trim();
                                     option.innerHTML = '';
@@ -1349,18 +1353,18 @@
                         });
                     });
                 }
-                
+
                 // Run after nice-select initializes
                 if (window.jQuery && typeof jQuery.fn.niceSelect !== 'undefined') {
-                    jQuery(document).ready(function() {
+                    jQuery(document).ready(function () {
                         // Initial run after nice-select is ready
                         setTimeout(addFlagsToNiceSelect, 400);
-                        
+
                         // Use MutationObserver to detect when dropdown opens and options are added
-                        const observer = new MutationObserver(function(mutations) {
-                            mutations.forEach(function(mutation) {
+                        const observer = new MutationObserver(function (mutations) {
+                            mutations.forEach(function (mutation) {
                                 if (mutation.addedNodes.length) {
-                                    const hasOptions = Array.from(mutation.addedNodes).some(node => 
+                                    const hasOptions = Array.from(mutation.addedNodes).some(node =>
                                         node.classList && (node.classList.contains('option') || node.querySelector('.option'))
                                     );
                                     if (hasOptions) {
@@ -1369,21 +1373,21 @@
                                 }
                             });
                         });
-                        
+
                         // Observe changes to nice-select lists
-                        setTimeout(function() {
-                            document.querySelectorAll('.nice-select.currency-select .list').forEach(function(list) {
+                        setTimeout(function () {
+                            document.querySelectorAll('.nice-select.currency-select .list').forEach(function (list) {
                                 observer.observe(list, { childList: true, subtree: true });
                             });
                         }, 500);
-                        
+
                         // Run when dropdown opens (nice-select creates options on open)
-                        jQuery(document).on('click', '.nice-select.currency-select', function() {
+                        jQuery(document).on('click', '.nice-select.currency-select', function () {
                             setTimeout(addFlagsToNiceSelect, 20);
                         });
-                        
+
                         // Also run when dropdown toggles
-                        jQuery(document).on('click', '.nice-select', function() {
+                        jQuery(document).on('click', '.nice-select', function () {
                             if (jQuery(this).hasClass('currency-select')) {
                                 setTimeout(addFlagsToNiceSelect, 20);
                             }
@@ -1403,15 +1407,15 @@
         crossorigin="anonymous"></script>
     <script>
         // Hide Spline Watermark and Enhance Design
-        (function() {
+        (function () {
             function hideSplineWatermark() {
                 // Wait for iframe to load
                 const iframe = document.querySelector('.spline-iframe');
                 if (!iframe) return;
-                
+
                 // Try to access iframe content (may be blocked by CORS)
                 try {
-                    iframe.onload = function() {
+                    iframe.onload = function () {
                         try {
                             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                             // Hide watermark elements
@@ -1436,21 +1440,21 @@
                     // CORS blocked - watermark will be hidden by CSS overlay
                 }
             }
-            
+
             // Run on DOM ready
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(hideSplineWatermark, 1000);
             });
-            
+
             // Also run when iframe loads
-            window.addEventListener('load', function() {
+            window.addEventListener('load', function () {
                 setTimeout(hideSplineWatermark, 2000);
             });
         })();
     </script>
     <script>
         // Chat Window Functionality
-        (function() {
+        (function () {
             const floatingBtn = document.getElementById('floatingContactBtn');
             const chatWindow = document.getElementById('chatWindow');
             const chatCloseBtn = document.getElementById('chatCloseBtn');
@@ -1458,7 +1462,7 @@
             const chatSendBtn = document.getElementById('chatSendBtn');
             const chatMessages = document.getElementById('chatMessages');
             const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
-            
+
             // Open chat window
             function openChat() {
                 if (chatWindow) {
@@ -1466,47 +1470,47 @@
                     chatInput.focus();
                 }
             }
-            
+
             // Close chat window
             function closeChat() {
                 if (chatWindow) {
                     chatWindow.classList.remove('active');
                 }
             }
-            
+
             // Add message to chat
             function addMessage(text, isUser = false) {
                 if (!chatMessages) return;
-                
+
                 const messageItem = document.createElement('div');
                 messageItem.className = `message-item ${isUser ? 'user-message' : 'bot-message'}`;
-                
+
                 const avatar = document.createElement('div');
                 avatar.className = 'message-avatar';
                 avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-headset"></i>';
-                
+
                 const content = document.createElement('div');
                 content.className = 'message-content';
-                
+
                 const messageText = document.createElement('div');
                 messageText.className = 'message-text';
                 messageText.textContent = text;
-                
+
                 const messageTime = document.createElement('div');
                 messageTime.className = 'message-time';
                 messageTime.textContent = 'Just now';
-                
+
                 content.appendChild(messageText);
                 content.appendChild(messageTime);
-                
+
                 messageItem.appendChild(avatar);
                 messageItem.appendChild(content);
-                
+
                 chatMessages.appendChild(messageItem);
-                
+
                 // Scroll to bottom
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-                
+
                 // Auto reply for user messages
                 if (isUser) {
                     setTimeout(() => {
@@ -1521,7 +1525,7 @@
                     }, 1000);
                 }
             }
-            
+
             // Send message
             function sendMessage() {
                 const message = chatInput.value.trim();
@@ -1530,10 +1534,10 @@
                     chatInput.value = '';
                 }
             }
-            
+
             // Event listeners
             if (floatingBtn) {
-                floatingBtn.addEventListener('click', function(e) {
+                floatingBtn.addEventListener('click', function (e) {
                     e.stopPropagation();
                     if (chatWindow && chatWindow.classList.contains('active')) {
                         closeChat();
@@ -1542,35 +1546,35 @@
                     }
                 });
             }
-            
+
             if (chatCloseBtn) {
                 chatCloseBtn.addEventListener('click', closeChat);
             }
-            
+
             if (chatSendBtn) {
                 chatSendBtn.addEventListener('click', sendMessage);
             }
-            
+
             if (chatInput) {
-                chatInput.addEventListener('keypress', function(e) {
+                chatInput.addEventListener('keypress', function (e) {
                     if (e.key === 'Enter') {
                         sendMessage();
                     }
                 });
             }
-            
+
             // Quick reply buttons
             quickReplyBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const message = this.getAttribute('data-message');
                     if (message) {
                         addMessage(message, true);
                     }
                 });
             });
-            
+
             // Close chat when clicking outside
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (chatWindow && chatWindow.classList.contains('active')) {
                     if (!chatWindow.contains(e.target) && !floatingBtn.contains(e.target)) {
                         closeChat();
@@ -1580,11 +1584,11 @@
         })();
     </script>
     <script>
-        (function(){
+        (function () {
             if (!window.jQuery) return;
-            jQuery(function(){
+            jQuery(function () {
                 // Toggle a class on the wrapper when a nice-select currency dropdown is opened
-                jQuery(document).on('click', '.nice-select.currency-select', function(e){
+                jQuery(document).on('click', '.nice-select.currency-select', function (e) {
                     var $nice = jQuery(this);
                     var $wrapper = $nice.closest('.currency-select-wrapper');
                     // Close any other open wrapper
@@ -1594,12 +1598,12 @@
                 });
 
                 // When user clicks an option, close the wrapper class (dropdown closed)
-                jQuery(document).on('click', '.nice-select .option', function(){
+                jQuery(document).on('click', '.nice-select .option', function () {
                     jQuery('.currency-select-wrapper.dropdown-open').removeClass('dropdown-open');
                 });
 
                 // Click outside closes any open wrapper
-                jQuery(document).on('click', function(e){
+                jQuery(document).on('click', function (e) {
                     if (!jQuery(e.target).closest('.currency-select-wrapper, .nice-select').length) {
                         jQuery('.currency-select-wrapper.dropdown-open').removeClass('dropdown-open');
                     }
@@ -1611,7 +1615,7 @@
         // Hide the "Paying with" quote-row (payment method) on page load
         document.addEventListener('DOMContentLoaded', function () {
             try {
-                document.querySelectorAll('.payment-method').forEach(function(pm){
+                document.querySelectorAll('.payment-method').forEach(function (pm) {
                     var row = pm.closest('.quote-row');
                     if (row) row.style.display = 'none';
                 });
