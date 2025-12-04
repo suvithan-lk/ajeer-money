@@ -37,6 +37,60 @@
     <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
     <!-- Scroll To Top End -->
 
+    <!-- Floating Contact/Chat Button Start -->
+    <div class="floating-contact-btn" id="floatingContactBtn">
+        <div class="chat-icon-wrapper">
+            <i class="fas fa-comments"></i>
+            <span class="pulse-ring"></span>
+            <span class="pulse-ring pulse-ring-2"></span>
+        </div>
+        <span class="contact-tooltip">Need help? Chat with us</span>
+    </div>
+    <!-- Floating Contact/Chat Button End -->
+
+    <!-- Chat Window Popup Start -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="chat-header-text">
+                    <h6>Support Team</h6>
+                    <span class="chat-status">Online</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" id="chatCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message-item bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">Hello! 👋 How can we help you today?</div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <div class="chat-input-wrapper">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+                <button class="chat-send-btn" id="chatSendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="chat-quick-replies">
+                <button class="quick-reply-btn" data-message="I need help with money transfer">Money Transfer</button>
+                <button class="quick-reply-btn" data-message="I want to know about fees">Fees</button>
+                <button class="quick-reply-btn" data-message="How do I create an account?">Create Account</button>
+            </div>
+        </div>
+    </div>
+    <!-- Chat Window Popup End -->
+
     <!-- header-section start -->
     <header class="header-section">
         <div class="overlay">
@@ -210,18 +264,18 @@
                                         <div class="input-row">
                                             <input type="text" class="amount-input" value="1,000">
                                             <div class="currency-select-wrapper">
-                                                <span class="currency-flag-display" id="sendCurrencyFlag">🇺🇸</span>
+                                                <span class="currency-flag-display" id="sendCurrencyFlag"><img src="https://flagcdn.com/w80/us.png" alt="USD" class="flag-img-hd"></span>
                                                 <select class="currency-select" id="sendCurrency">
-                                                    <option value="USD" data-flag="🇺🇸">USD</option>
-                                                    <option value="GBP" data-flag="🇬🇧">GBP</option>
-                                                    <option value="EUR" data-flag="🇪🇺">EUR</option>
-                                                    <option value="AUD" data-flag="🇦🇺">AUD</option>
-                                                    <option value="CAD" data-flag="🇨🇦">CAD</option>
-                                                    <option value="JPY" data-flag="🇯🇵">JPY</option>
-                                                    <option value="CHF" data-flag="🇨🇭">CHF</option>
-                                                    <option value="CNY" data-flag="🇨🇳">CNY</option>
-                                                    <option value="INR" data-flag="🇮🇳">INR</option>
-                                                    <option value="AED" data-flag="🇦🇪">AED</option>
+                                                    <option value="USD" data-flag="us">USD</option>
+                                                    <option value="GBP" data-flag="gb">GBP</option>
+                                                    <option value="EUR" data-flag="eu">EUR</option>
+                                                    <option value="AUD" data-flag="au">AUD</option>
+                                                    <option value="CAD" data-flag="ca">CAD</option>
+                                                    <option value="JPY" data-flag="jp">JPY</option>
+                                                    <option value="CHF" data-flag="ch">CHF</option>
+                                                    <option value="CNY" data-flag="cn">CNY</option>
+                                                    <option value="INR" data-flag="in">INR</option>
+                                                    <option value="AED" data-flag="ae">AED</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -232,23 +286,23 @@
                                         <div class="input-row">
                                             <input type="text" class="amount-input recipient" value="306,388.47">
                                             <div class="currency-select-wrapper">
-                                                <span class="currency-flag-display" id="receiveCurrencyFlag">🇱🇰</span>
+                                                <span class="currency-flag-display" id="receiveCurrencyFlag"><img src="https://flagcdn.com/w80/lk.png" alt="LKR" class="flag-img-hd"></span>
                                                 <select class="currency-select" id="receiveCurrency">
-                                                    <option value="LKR" data-flag="🇱🇰">LKR</option>
-                                                    <option value="USD" data-flag="🇺🇸">USD</option>
-                                                    <option value="GBP" data-flag="🇬🇧">GBP</option>
-                                                    <option value="EUR" data-flag="🇪🇺">EUR</option>
-                                                    <option value="AUD" data-flag="🇦🇺">AUD</option>
-                                                    <option value="CAD" data-flag="🇨🇦">CAD</option>
-                                                    <option value="JPY" data-flag="🇯🇵">JPY</option>
-                                                    <option value="INR" data-flag="🇮🇳">INR</option>
-                                                    <option value="PKR" data-flag="🇵🇰">PKR</option>
-                                                    <option value="BDT" data-flag="🇧🇩">BDT</option>
-                                                    <option value="AED" data-flag="🇦🇪">AED</option>
-                                                    <option value="SGD" data-flag="🇸🇬">SGD</option>
-                                                    <option value="MYR" data-flag="🇲🇾">MYR</option>
-                                                    <option value="THB" data-flag="🇹🇭">THB</option>
-                                                    <option value="PHP" data-flag="🇵🇭">PHP</option>
+                                                    <option value="LKR" data-flag="lk">LKR</option>
+                                                    <option value="USD" data-flag="us">USD</option>
+                                                    <option value="GBP" data-flag="gb">GBP</option>
+                                                    <option value="EUR" data-flag="eu">EUR</option>
+                                                    <option value="AUD" data-flag="au">AUD</option>
+                                                    <option value="CAD" data-flag="ca">CAD</option>
+                                                    <option value="JPY" data-flag="jp">JPY</option>
+                                                    <option value="INR" data-flag="in">INR</option>
+                                                    <option value="PKR" data-flag="pk">PKR</option>
+                                                    <option value="BDT" data-flag="bd">BDT</option>
+                                                    <option value="AED" data-flag="ae">AED</option>
+                                                    <option value="SGD" data-flag="sg">SGD</option>
+                                                    <option value="MYR" data-flag="my">MYR</option>
+                                                    <option value="THB" data-flag="th">THB</option>
+                                                    <option value="PHP" data-flag="ph">PHP</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -342,8 +396,17 @@
 
     <!-- Country Selection Section start -->
     <section class="country-selection-section">
-        <div class="overlay pt-120 pb-120">
-            <div class="container wow fadeInUp">
+        <div class="overlay pt-120 pb-120 position-relative">
+            <div class="spline-background">
+                <iframe 
+                    src='https://my.spline.design/holographicearthwithdynamiclines-IfQMsxj6KqpV9PzSRaBJZ2mx/' 
+                    frameborder='0' 
+                    allow="autoplay; fullscreen; xr-spatial-tracking"
+                    class="spline-iframe">
+                </iframe>
+                <div class="spline-overlay"></div>
+            </div>
+            <div class="container wow fadeInUp position-relative">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="section-header text-center">
@@ -1071,7 +1134,7 @@
                     const countryItem = document.createElement('div');
                     countryItem.className = 'country-item';
                     countryItem.innerHTML = `
-                        <div class="country-flag"><img src="https://flagcdn.com/w80/${country.code.toLowerCase()}.png" alt="${country.name} flag" style="width: 48px; height: auto; border-radius: 4px;"></div>
+                        <div class="country-flag"><img src="https://flagcdn.com/w160/${country.code.toLowerCase()}.png" alt="${country.name} flag" class="country-flag-img-hd"></div>
                         <a href="javascript:void(0)" class="country-link">Send money to ${country.name}</a>
                     `;
                     grid.appendChild(countryItem);
@@ -1193,11 +1256,21 @@
         (function () {
             function _setFlagContent(flagDisplay, flag) {
                 if (!flagDisplay) return;
-                if (!flag) { flagDisplay.textContent = ''; return; }
-                // If flag looks like a URL or path, render an image; otherwise render text (emoji or short string)
-                if (flag.indexOf('/') !== -1 || flag.indexOf('.png') !== -1 || flag.indexOf('assets') === 0) {
-                    flagDisplay.innerHTML = '<img src="' + flag + '" alt="flag" style="height:18px; width:auto; display:inline-block; vertical-align:middle;">';
-                } else {
+                if (!flag) { flagDisplay.innerHTML = ''; return; }
+                
+                // If flag is already a full URL or path, use it directly with HD quality
+                if (flag.indexOf('http') === 0 || flag.indexOf('/') === 0 || flag.indexOf('assets') === 0) {
+                    // Replace w20 with w80 for HD quality if it's a flagcdn URL
+                    const hdFlag = flag.replace(/w20/g, 'w80').replace(/w40/g, 'w80');
+                    flagDisplay.innerHTML = '<img src="' + hdFlag + '" alt="flag" class="flag-img-hd">';
+                } 
+                // If flag is a country code (2 letters), use flagcdn.com with HD quality
+                else if (flag.length === 2 || flag.length === 3) {
+                    const countryCode = flag.toLowerCase();
+                    flagDisplay.innerHTML = '<img src="https://flagcdn.com/w80/' + countryCode + '.png" alt="flag" class="flag-img-hd" onerror="this.style.display=\'none\'">';
+                } 
+                // Otherwise, treat as emoji or text
+                else {
                     flagDisplay.textContent = flag;
                 }
             }
@@ -1240,6 +1313,92 @@
             document.addEventListener('DOMContentLoaded', function () {
                 updateCurrencyFlag('sendCurrency', 'sendCurrencyFlag');
                 updateCurrencyFlag('receiveCurrency', 'receiveCurrencyFlag');
+                
+                // Add flags to nice-select dropdown options
+                function addFlagsToNiceSelect() {
+                    const selects = ['sendCurrency', 'receiveCurrency'];
+                    selects.forEach(selectId => {
+                        const select = document.getElementById(selectId);
+                        if (!select) return;
+                        
+                        const niceSelect = select.nextElementSibling;
+                        if (!niceSelect || !niceSelect.classList.contains('nice-select')) return;
+                        
+                        const options = niceSelect.querySelectorAll('.option');
+                        const selectOptions = select.querySelectorAll('option');
+                        
+                        options.forEach((option, index) => {
+                            if (selectOptions[index]) {
+                                const flagCode = selectOptions[index].getAttribute('data-flag');
+                                if (flagCode) {
+                                    // Skip if flag already exists
+                                    if (option.querySelector('.option-flag')) return;
+                                    
+                                    // Create flag element with HD quality
+                                    const flagImg = document.createElement('img');
+                                    flagImg.src = `https://flagcdn.com/w160/${flagCode.toLowerCase()}.png`;
+                                    flagImg.alt = flagCode;
+                                    flagImg.className = 'option-flag';
+                                    flagImg.loading = 'eager';
+                                    flagImg.onerror = function() { 
+                                        // Fallback to smaller size if w160 fails
+                                        this.src = `https://flagcdn.com/w80/${flagCode.toLowerCase()}.png`;
+                                    };
+                                    
+                                    // Get the text content
+                                    const textContent = option.textContent.trim();
+                                    option.innerHTML = '';
+                                    option.appendChild(flagImg);
+                                    option.appendChild(document.createTextNode(' ' + textContent));
+                                }
+                            }
+                        });
+                    });
+                }
+                
+                // Run after nice-select initializes
+                if (window.jQuery && typeof jQuery.fn.niceSelect !== 'undefined') {
+                    jQuery(document).ready(function() {
+                        // Initial run after nice-select is ready
+                        setTimeout(addFlagsToNiceSelect, 400);
+                        
+                        // Use MutationObserver to detect when dropdown opens and options are added
+                        const observer = new MutationObserver(function(mutations) {
+                            mutations.forEach(function(mutation) {
+                                if (mutation.addedNodes.length) {
+                                    const hasOptions = Array.from(mutation.addedNodes).some(node => 
+                                        node.classList && (node.classList.contains('option') || node.querySelector('.option'))
+                                    );
+                                    if (hasOptions) {
+                                        setTimeout(addFlagsToNiceSelect, 5);
+                                    }
+                                }
+                            });
+                        });
+                        
+                        // Observe changes to nice-select lists
+                        setTimeout(function() {
+                            document.querySelectorAll('.nice-select.currency-select .list').forEach(function(list) {
+                                observer.observe(list, { childList: true, subtree: true });
+                            });
+                        }, 500);
+                        
+                        // Run when dropdown opens (nice-select creates options on open)
+                        jQuery(document).on('click', '.nice-select.currency-select', function() {
+                            setTimeout(addFlagsToNiceSelect, 20);
+                        });
+                        
+                        // Also run when dropdown toggles
+                        jQuery(document).on('click', '.nice-select', function() {
+                            if (jQuery(this).hasClass('currency-select')) {
+                                setTimeout(addFlagsToNiceSelect, 20);
+                            }
+                        });
+                    });
+                } else {
+                    // Fallback if nice-select isn't loaded yet
+                    setTimeout(addFlagsToNiceSelect, 500);
+                }
             });
         })();
     </script>
@@ -1248,6 +1407,184 @@
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"version":"2024.11.0","token":"6e6444122ed94892b6dff27396bb5627","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
         crossorigin="anonymous"></script>
+    <script>
+        // Hide Spline Watermark and Enhance Design
+        (function() {
+            function hideSplineWatermark() {
+                // Wait for iframe to load
+                const iframe = document.querySelector('.spline-iframe');
+                if (!iframe) return;
+                
+                // Try to access iframe content (may be blocked by CORS)
+                try {
+                    iframe.onload = function() {
+                        try {
+                            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                            // Hide watermark elements
+                            const watermark = iframeDoc.querySelector('[class*="watermark"], [id*="watermark"], [class*="spline"], [id*="spline"]');
+                            if (watermark) {
+                                watermark.style.display = 'none';
+                            }
+                            // Hide any elements at the bottom that might be watermark
+                            const allElements = iframeDoc.querySelectorAll('*');
+                            allElements.forEach(el => {
+                                const style = window.getComputedStyle(el);
+                                if (el.textContent && el.textContent.toLowerCase().includes('spline')) {
+                                    el.style.display = 'none';
+                                }
+                            });
+                        } catch (e) {
+                            // CORS blocked - use CSS overlay instead
+                            console.log('Using CSS overlay to hide watermark');
+                        }
+                    };
+                } catch (e) {
+                    // CORS blocked - watermark will be hidden by CSS overlay
+                }
+            }
+            
+            // Run on DOM ready
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(hideSplineWatermark, 1000);
+            });
+            
+            // Also run when iframe loads
+            window.addEventListener('load', function() {
+                setTimeout(hideSplineWatermark, 2000);
+            });
+        })();
+    </script>
+    <script>
+        // Chat Window Functionality
+        (function() {
+            const floatingBtn = document.getElementById('floatingContactBtn');
+            const chatWindow = document.getElementById('chatWindow');
+            const chatCloseBtn = document.getElementById('chatCloseBtn');
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const chatMessages = document.getElementById('chatMessages');
+            const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
+            
+            // Open chat window
+            function openChat() {
+                if (chatWindow) {
+                    chatWindow.classList.add('active');
+                    chatInput.focus();
+                }
+            }
+            
+            // Close chat window
+            function closeChat() {
+                if (chatWindow) {
+                    chatWindow.classList.remove('active');
+                }
+            }
+            
+            // Add message to chat
+            function addMessage(text, isUser = false) {
+                if (!chatMessages) return;
+                
+                const messageItem = document.createElement('div');
+                messageItem.className = `message-item ${isUser ? 'user-message' : 'bot-message'}`;
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-headset"></i>';
+                
+                const content = document.createElement('div');
+                content.className = 'message-content';
+                
+                const messageText = document.createElement('div');
+                messageText.className = 'message-text';
+                messageText.textContent = text;
+                
+                const messageTime = document.createElement('div');
+                messageTime.className = 'message-time';
+                messageTime.textContent = 'Just now';
+                
+                content.appendChild(messageText);
+                content.appendChild(messageTime);
+                
+                messageItem.appendChild(avatar);
+                messageItem.appendChild(content);
+                
+                chatMessages.appendChild(messageItem);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Auto reply for user messages
+                if (isUser) {
+                    setTimeout(() => {
+                        const responses = [
+                            "Thank you for your message! Our support team will get back to you shortly.",
+                            "I understand your concern. Let me help you with that.",
+                            "That's a great question! One of our agents will assist you soon.",
+                            "Thanks for reaching out! We're here to help you."
+                        ];
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        addMessage(randomResponse, false);
+                    }, 1000);
+                }
+            }
+            
+            // Send message
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatInput.value = '';
+                }
+            }
+            
+            // Event listeners
+            if (floatingBtn) {
+                floatingBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (chatWindow && chatWindow.classList.contains('active')) {
+                        closeChat();
+                    } else {
+                        openChat();
+                    }
+                });
+            }
+            
+            if (chatCloseBtn) {
+                chatCloseBtn.addEventListener('click', closeChat);
+            }
+            
+            if (chatSendBtn) {
+                chatSendBtn.addEventListener('click', sendMessage);
+            }
+            
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+            }
+            
+            // Quick reply buttons
+            quickReplyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const message = this.getAttribute('data-message');
+                    if (message) {
+                        addMessage(message, true);
+                    }
+                });
+            });
+            
+            // Close chat when clicking outside
+            document.addEventListener('click', function(e) {
+                if (chatWindow && chatWindow.classList.contains('active')) {
+                    if (!chatWindow.contains(e.target) && !floatingBtn.contains(e.target)) {
+                        closeChat();
+                    }
+                }
+            });
+        })();
+    </script>
 </body>
 
 
