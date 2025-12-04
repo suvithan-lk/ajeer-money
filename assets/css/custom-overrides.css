@@ -825,14 +825,61 @@
   font-size: 18px;
 }
 
-.country-search-box input {
+.country-search-box input,
+.country-search-box input.form-control {
   flex: 1;
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
   font-size: 16px;
   color: #1e293b;
   background: transparent;
   padding: 0;
+  box-shadow: none !important;
+}
+
+.country-search-box input:focus,
+.country-search-box input:active,
+.country-search-box input:focus-visible,
+.country-search-box input.form-control:focus,
+.country-search-box input.form-control:active,
+.country-search-box input.form-control:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  outline-offset: 0 !important;
+  outline-width: 0 !important;
+}
+
+.country-search-box:focus-within {
+  outline: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Remove any browser default focus ring */
+.country-search-box input::-webkit-search-decoration,
+.country-search-box input::-webkit-search-cancel-button,
+.country-search-box input::-webkit-search-results-button,
+.country-search-box input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+/* Override Bootstrap form-control focus styles */
+#countrySearch:focus,
+#countrySearch.form-control:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Ensure no focus ring on any state */
+#countrySearch:focus-visible,
+#countrySearch:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .country-search-box input::placeholder {
