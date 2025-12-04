@@ -1474,10 +1474,10 @@ label {
 .footer-section .newsletter {
   border-radius: 20px;
   padding: 80px 0;
-  background-image: url(../images/footer-bg-left.png), url(../images/footer-bg-right.png);
+  background-image: url(../images/footer-bg-left.png);
   background-repeat: no-repeat;
   background-position: left 20px center, right bottom;
-  background-color: var(--primary-color);
+  background-color: var(--head-color);
 }
 
 .footer-section .newsletter form {
@@ -1502,7 +1502,7 @@ label {
   min-width: 50px;
   min-height: 50px;
   border-radius: 50%;
-  background-color: var(--primary-color);
+  background-color: var(--head-color);
 }
 
 .footer-section .footer-area .menu-item li {
