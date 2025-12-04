@@ -1,4 +1,4 @@
-/* custom-overrides.css
+                                                 /* custom-overrides.css
    Remove borders and box-shadows from common "card" elements used across the template.
    Add or adjust selectors below if you want to target different elements.
 */
@@ -768,6 +768,7 @@
 .footer-section .newsletter {
   background-color: var(--bright-snow) !important;
   color: var(--charcoal-blue) !important;
+  
 }
 
 /* Make primary buttons use the new ocean-mist accent */
@@ -817,6 +818,27 @@
 .cmn-btn[disabled] {
   opacity: 0.55 !important;
   cursor: not-allowed !important;
+
+}
+
+/* Footer newsletter should use the ocean-mist accent for the background
+   while keeping readable text and input contrast. This overrides the
+   earlier bright-snow default for the footer newsletter specifically. */
+.footer-section .newsletter {
+  background-color: var(--ocean-mist) !important;
+  color: var(--charcoal-blue) !important;
+}
+
+.footer-section .newsletter input,
+.footer-section .newsletter .form-control {
+  background: rgba(250,250,250,0.12) !important;
+  color: var(--bright-snow) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+.footer-section .newsletter .cmn-btn {
+  background: var(--charcoal-blue) !important;
+  color: var(--bright-snow) !important;
 }
 
 /* Country Selection Section Styles */
@@ -1309,94 +1331,93 @@
   }
 
   .country-link {
+    font-size: 12px;
+  }
+}
 
-    /* Banner human (banner-human.png, .obj-2) positioning and responsive sizing
+/* Banner human (banner-human.png, .obj-2) positioning and responsive sizing
    - Places the human illustration slightly left and behind the hero card on large screens
    - Keeps the hero content above the illustration using z-index
    - Stacks the human image above content on small screens for better layout
 */
-    .banner-section .shape-area {
-      position: relative;
-      overflow: visible;
-    }
+.banner-section .shape-area {
+  position: relative;
+  overflow: visible;
+}
 
-    .banner-section .banner-content {
-      position: relative;
-      z-index: 3;
-    }
+.banner-section .banner-content {
+  position: relative;
+  z-index: 3;
+}
 
-    .banner-section .shape-area .obj-2 {
-      position: absolute;
-      left: -72px;
-      /* nudges the human slightly off the canvas to the left */
-      bottom: -6px;
-      /* align feet near bottom */
-      width: 420px;
-      /* base desktop size */
-      max-width: 46%;
-      height: auto;
-      z-index: 1;
-      /* behind banner-content which has z-index:3 */
-      pointer-events: none;
-      transform-origin: left bottom;
-    }
+.banner-section .shape-area .obj-2 {
+  position: absolute;
+  left: -72px;
+  /* nudges the human slightly off the canvas to the left */
+  bottom: -6px;
+  /* align feet near bottom */
+  width: 420px;
+  /* base desktop size */
+  max-width: 46%;
+  height: auto;
+  z-index: 1;
+  /* behind banner-content which has z-index:3 */
+  pointer-events: none;
+  transform-origin: left bottom;
+}
 
-    /* Improve separation: elevate the quote card and soften the human illustration
+/* Improve separation: elevate the quote card and soften the human illustration
    - stronger shadow + subtle backdrop to make the card pop
    - slightly reduce human opacity so text reads easier
 */
-    .banner-section .quote-card {
-      position: relative;
-      z-index: 6;
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 12px;
-      box-shadow: 0 14px 40px rgba(2, 6, 23, 0.10), 0 4px 12px rgba(2, 6, 23, 0.06) !important;
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
-    }
+.banner-section .quote-card {
+  position: relative;
+  z-index: 6;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.10), 0 4px 12px rgba(2, 6, 23, 0.06) !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
 
-    .banner-section .shape-area .obj-2 {
-      /* soften the illustration so foreground card stands out */
-      opacity: 0.92;
-      filter: saturate(0.98) contrast(0.98);
-    }
+.banner-section .shape-area .obj-2 {
+  /* soften the illustration so foreground card stands out */
+  opacity: 0.92;
+  filter: saturate(0.98) contrast(0.98);
+}
 
-    @media (max-width: 1400px) {
-      .banner-section .shape-area .obj-2 {
-        left: -56px;
-        width: 360px;
-        max-width: 42%;
-      }
-    }
+@media (max-width: 1400px) {
+  .banner-section .shape-area .obj-2 {
+    left: -56px;
+    width: 360px;
+    max-width: 42%;
+  }
+}
 
-    @media (max-width: 992px) {
-      .banner-section .shape-area .obj-2 {
-        left: -28px;
-        width: 300px;
-        max-width: 40%;
-      }
-    }
+@media (max-width: 992px) {
+  .banner-section .shape-area .obj-2 {
+    left: -28px;
+    width: 300px;
+    max-width: 40%;
+  }
+}
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
 
-      /* On smaller tablets/phones we stack the illustration above/beside content */
-      .banner-section .shape-area .obj-2 {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        display: block;
-        margin: 0 auto 12px auto;
-        width: 220px;
-        max-width: 70%;
-        z-index: 0;
-      }
+  /* On smaller tablets/phones we stack the illustration above/beside content */
+  .banner-section .shape-area .obj-2 {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: block;
+    margin: 0 auto 12px auto;
+    width: 220px;
+    max-width: 70%;
+    z-index: 0;
+  }
 
-      .banner-section .banner-content {
-        z-index: 4;
-      }
-    }
-
-    font-size: 12px;
+  .banner-section .banner-content {
+    z-index: 4;
   }
 }
 
