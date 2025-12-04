@@ -951,54 +951,34 @@
   }
 }
 
-/* Spline embed wrapper: crop and scale the iframe so the lower 'water' area is hidden
-   - The iframe is cross-origin; we cannot remove elements inside it. We crop/translate
-     the visible area here to hide the unwanted section visually. */
-.spline-embed-wrapper {
+/* Video embed wrapper: centered video with nice styling
+   - Smaller size for a more subtle presentation
+   - Centered with auto margins
+   - Rounded corners and subtle shadow for polish */
+.video-embed-wrapper {
   width: 100%;
-  max-width: 480px;
-  /* control visible size */
-  height: 260px;
-  /* visible height */
+  max-width: 420px;
+  /* smaller than before for better balance */
+  height: 240px;
+  /* compact height */
   margin: 18px auto 32px auto;
+  /* centered */
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
-  background: #f8fafc;
 }
 
-.spline-embed-wrapper .spline-embed {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform-origin: top center;
-  /* enlarge and shift up so lower water is out of view */
-  transform: translateX(-50%) translateY(-18%) scale(1.2);
-  width: 120%;
-  height: 120%;
-  border: none;
-}
-
-.spline-embed-wrapper .spline-badge {
-  position: absolute;
-  right: 10px;
-  bottom: 8px;
-  background: rgba(15, 23, 42, 0.06);
-  color: #0f172a;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  backdrop-filter: blur(2px);
+.video-embed-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ensures video fills the container nicely */
+  display: block;
 }
 
 @media (max-width: 768px) {
-  .spline-embed-wrapper {
-    max-width: 360px;
-    height: 200px;
-  }
-
-  .spline-embed-wrapper .spline-embed {
-    transform: translateX(-50%) translateY(-16%) scale(1.15);
+  .video-embed-wrapper {
+    max-width: 340px;
+    height: 190px;
   }
 }
