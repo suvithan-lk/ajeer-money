@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajeer Money - Color Palette Preview</title>
+    <link rel="stylesheet" href="assets/css/color-palette.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--neutral-50);
+            padding: 40px 20px;
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: var(--gradient-hero);
+            padding: 60px 40px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .color-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .color-swatch {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .color-info {
+            padding: 16px;
+            background: white;
+        }
+
+        .color-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .color-hex {
+            font-family: 'Courier New', monospace;
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .color-var {
+            font-family: 'Courier New', monospace;
+            color: var(--primary-500);
+            font-size: 12px;
+        }
+
+        .gradient-card {
+            height: 200px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 20px;
+        }
+
+        .example-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .example-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-primary);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-500);
+            color: var(--text-on-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-600);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-500);
+            color: var(--text-on-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-600);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-500);
+            color: var(--primary-500);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-50);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 4px;
+        }
+
+        .badge-success {
+            background: var(--success-100);
+            color: var(--success-600);
+        }
+
+        .badge-warning {
+            background: var(--warning-100);
+            color: var(--warning-600);
+        }
+
+        .badge-error {
+            background: var(--error-100);
+            color: var(--error-600);
+        }
+
+        .badge-info {
+            background: var(--info-100);
+            color: var(--info-600);
+        }
+
+        .text-sample {
+            margin: 16px 0;
+        }
+
+        .copy-btn {
+            background: var(--neutral-100);
+            border: 1px solid var(--border-primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--neutral-200);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 24px;
+            }
+
+            .color-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎨 Ajeer Money Color Palette</h1>
+            <p>Complete design system based on logo colors</p>
+        </div>
+
+        <!-- Primary Colors -->
+        <div class="section">
+            <h2 class="section-title">🌊 Primary Colors (Teal)</h2>
+            <p class="section-subtitle">Main brand color representing trust and financial growth</p>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #E8FCF8; color: #0F172A;">50</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 50</div>
+                        <div class="color-hex">#E8FCF8</div>
+                        <div class="color-var">--primary-50</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #C7F5EC; color: #0F172A;">100</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 100</div>
+                        <div class="color-hex">#C7F5EC</div>
+                        <div class="color-var">--primary-100</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #8FEBD8; color: #0F172A;">200</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 200</div>
+                        <div class="color-hex">#8FEBD8</div>
+                        <div class="color-var">--primary-200</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #5FE0C4; color: #0F172A;">300</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 300</div>
+                        <div class="color-hex">#5FE0C4</div>
+                        <div class="color-var">--primary-300</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #3FCFB0; color: #FFFFFF;">400</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 400</div>
+                        <div class="color-hex">#3FCFB0</div>
+                        <div class="color-var">--primary-400</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #25BA9A; color: #FFFFFF;">⭐ 500</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 500 (Main)</div>
+                        <div class="color-hex">#25BA9A</div>
+                        <div class="color-var">--primary-500</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1FA885; color: #FFFFFF;">600</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 600</div>
+                        <div class="color-hex">#1FA885</div>
+                        <div class="color-var">--primary-600</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #188770; color: #FFFFFF;">700</div>
+                    <div class="color-info">
+                        <div class="color-name">Primary 700</div>
+                        <div class="color-hex">#188770</div>
+                        <div class="color-var">--primary-700</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Colors -->
+        <div class="section">
+            <h2 class="section-title">🌌 Secondary Colors (Navy)</h2>
+            <p class="section-subtitle">Complementary color for professionalism and stability</p>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #E5F2F7; color: #0F172A;">50</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 50</div>
+                        <div class="color-hex">#E5F2F7</div>
+                        <div class="color-var">--secondary-50</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #B5D9E6; color: #0F172A;">100</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 100</div>
+                        <div class="color-hex">#B5D9E6</div>
+                        <div class="color-var">--secondary-100</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #7AB3C8; color: #FFFFFF;">200</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 200</div>
+                        <div class="color-hex">#7AB3C8</div>
+                        <div class="color-var">--secondary-200</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #4A8BA0; color: #FFFFFF;">300</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 300</div>
+                        <div class="color-hex">#4A8BA0</div>
+                        <div class="color-var">--secondary-300</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #2A6B7F; color: #FFFFFF;">400</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 400</div>
+                        <div class="color-hex">#2A6B7F</div>
+                        <div class="color-var">--secondary-400</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #1A4D5E; color: #FFFFFF;">⭐ 500</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 500 (Main)</div>
+                        <div class="color-hex">#1A4D5E</div>
+                        <div class="color-var">--secondary-500</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #0F3A48; color: #FFFFFF;">600</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 600</div>
+                        <div class="color-hex">#0F3A48</div>
+                        <div class="color-var">--secondary-600</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #082832; color: #FFFFFF;">700</div>
+                    <div class="color-info">
+                        <div class="color-name">Secondary 700</div>
+                        <div class="color-hex">#082832</div>
+                        <div class="color-var">--secondary-700</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accent Colors -->
+        <div class="section">
+            <h2 class="section-title">⚡ Accent Colors (Lime)</h2>
+            <p class="section-subtitle">Energetic accent for modern fintech feel</p>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #FCFFF0; color: #0F172A;">100</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 100</div>
+                        <div class="color-hex">#FCFFF0</div>
+                        <div class="color-var">--accent-100</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #F8FFDF; color: #0F172A;">200</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 200</div>
+                        <div class="color-hex">#F8FFDF</div>
+                        <div class="color-var">--accent-200</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #F3FFC6; color: #0F172A;">300</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 300</div>
+                        <div class="color-hex">#F3FFC6</div>
+                        <div class="color-var">--accent-300</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #EFFFAD; color: #0F172A;">400</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 400</div>
+                        <div class="color-hex">#EFFFAD</div>
+                        <div class="color-var">--accent-400</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #E6FF94; color: #0F172A;">⭐ 500</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 500 (Main)</div>
+                        <div class="color-hex">#E6FF94</div>
+                        <div class="color-var">--accent-500</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #D4F070; color: #0F172A;">600</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 600</div>
+                        <div class="color-hex">#D4F070</div>
+                        <div class="color-var">--accent-600</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #C2E04D; color: #0F172A;">700</div>
+                    <div class="color-info">
+                        <div class="color-name">Accent 700</div>
+                        <div class="color-hex">#C2E04D</div>
+                        <div class="color-var">--accent-700</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gradients -->
+        <div class="section">
+            <h2 class="section-title">🎨 Gradients</h2>
+            <p class="section-subtitle">Beautiful gradient combinations</p>
+            <div class="gradient-card" style="background: linear-gradient(135deg, #25BA9A 0%, #1FA885 100%);">
+                Primary Gradient
+            </div>
+            <div class="gradient-card" style="background: linear-gradient(135deg, #1A4D5E 0%, #0F3A48 100%);">
+                Secondary Gradient
+            </div>
+            <div class="gradient-card"
+                style="background: linear-gradient(135deg, #E6FF94 0%, #D4F070 100%); color: #0F172A;">
+                Accent Gradient
+            </div>
+            <div class="gradient-card" style="background: linear-gradient(135deg, #25BA9A 0%, #1A4D5E 100%);">
+                Hero Gradient
+            </div>
+        </div>
+
+        <!-- Semantic Colors -->
+        <div class="section">
+            <h2 class="section-title">🎯 Semantic Colors</h2>
+            <p class="section-subtitle">Status and feedback colors</p>
+            <div class="example-section">
+                <div class="example-card">
+                    <h3 style="color: var(--success-600); margin-bottom: 16px;">✅ Success</h3>
+                    <span class="badge badge-success">Success Badge</span>
+                    <div class="text-sample" style="color: var(--success-600);">
+                        Transaction completed successfully
+                    </div>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: var(--warning-600); margin-bottom: 16px;">⚠️ Warning</h3>
+                    <span class="badge badge-warning">Warning Badge</span>
+                    <div class="text-sample" style="color: var(--warning-600);">
+                        Please verify your information
+                    </div>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: var(--error-600); margin-bottom: 16px;">❌ Error</h3>
+                    <span class="badge badge-error">Error Badge</span>
+                    <div class="text-sample" style="color: var(--error-600);">
+                        Transaction failed. Please try again
+                    </div>
+                </div>
+                <div class="example-card">
+                    <h3 style="color: var(--info-600); margin-bottom: 16px;">ℹ️ Info</h3>
+                    <span class="badge badge-info">Info Badge</span>
+                    <div class="text-sample" style="color: var(--info-600);">
+                        New features available
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UI Examples -->
+        <div class="section">
+            <h2 class="section-title">💻 UI Component Examples</h2>
+            <p class="section-subtitle">See the colors in action</p>
+
+            <div style="margin-bottom: 32px;">
+                <h3 style="margin-bottom: 16px;">Buttons</h3>
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary" style="margin-left: 12px;">Secondary Button</button>
+                <button class="btn btn-outline" style="margin-left: 12px;">Outline Button</button>
+            </div>
+
+            <div style="margin-bottom: 32px;">
+                <h3 style="margin-bottom: 16px;">Typography</h3>
+                <h1 style="color: var(--text-primary); margin-bottom: 8px;">Heading 1</h1>
+                <h2 style="color: var(--text-primary); margin-bottom: 8px;">Heading 2</h2>
+                <h3 style="color: var(--text-secondary); margin-bottom: 8px;">Heading 3</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 8px;">Body text with secondary color</p>
+                <p style="color: var(--text-tertiary);">Tertiary text for less important information</p>
+            </div>
+
+            <div>
+                <h3 style="margin-bottom: 16px;">Cards with Shadows</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="padding: 24px; background: white; border-radius: 12px; box-shadow: var(--shadow-sm);">
+                        <div style="color: var(--primary-500); font-size: 32px; margin-bottom: 8px;">📊</div>
+                        <h4 style="margin-bottom: 8px;">Small Shadow</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Subtle elevation</p>
+                    </div>
+                    <div style="padding: 24px; background: white; border-radius: 12px; box-shadow: var(--shadow-md);">
+                        <div style="color: var(--primary-500); font-size: 32px; margin-bottom: 8px;">💳</div>
+                        <h4 style="margin-bottom: 8px;">Medium Shadow</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Standard cards</p>
+                    </div>
+                    <div style="padding: 24px; background: white; border-radius: 12px; box-shadow: var(--shadow-lg);">
+                        <div style="color: var(--primary-500); font-size: 32px; margin-bottom: 8px;">🚀</div>
+                        <h4 style="margin-bottom: 8px;">Large Shadow</h4>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Prominent elements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+            style="text-align: center; margin-top: 60px; padding: 40px; background: var(--gradient-hero); border-radius: 16px; color: white;">
+            <h2 style="margin-bottom: 16px;">Ready to Use!</h2>
+            <p style="opacity: 0.95; margin-bottom: 24px;">
+                Import <code
+                    style="background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px;">color-palette.css</code>
+                into your project and start using these colors
+            </p>
+            <p style="font-size: 14px; opacity: 0.8;">
+                All colors are WCAG 2.1 Level AA compliant for accessibility
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+/**
+ * AJEER MONEY - COMPLETE COLOR PALETTE
+ * Generated from logo colors with modern UI design principles
+ * 
+ * Color Philosophy:
+ * - Primary: Teal/Turquoise from logo (#25BA9A) - Trust, reliability, financial growth
+ * - Secondary: Deep Navy (#1A4D5E) - Professionalism, stability
+ * - Accent: Bright Lime (#E6FF94) - Energy, modern fintech feel
+ * - Backgrounds: Clean whites and subtle grays
+ * - Text: High contrast for accessibility
+ */
+
+:root {
+    /* ========================================
+     PRIMARY COLORS (From Logo)
+     ======================================== */
+    --primary-500: #25BA9A;
+    /* Main brand color - Teal */
+    --primary-400: #3FCFB0;
+    /* Lighter teal */
+    --primary-600: #1FA885;
+    /* Darker teal */
+    --primary-300: #5FE0C4;
+    /* Very light teal */
+    --primary-700: #188770;
+    /* Deep teal */
+    --primary-200: #8FEBD8;
+    /* Pastel teal */
+    --primary-100: #C7F5EC;
+    /* Very pale teal */
+    --primary-50: #E8FCF8;
+    /* Almost white teal */
+
+    /* ========================================
+     SECONDARY COLORS (Complementary)
+     ======================================== */
+    --secondary-500: #1A4D5E;
+    /* Deep navy blue */
+    --secondary-400: #2A6B7F;
+    /* Medium navy */
+    --secondary-600: #0F3A48;
+    /* Darker navy */
+    --secondary-300: #4A8BA0;
+    /* Light navy */
+    --secondary-700: #082832;
+    /* Very dark navy */
+    --secondary-200: #7AB3C8;
+    /* Pale navy */
+    --secondary-100: #B5D9E6;
+    /* Very pale navy */
+    --secondary-50: #E5F2F7;
+    /* Almost white navy */
+
+    /* ========================================
+     ACCENT COLORS (From Logo)
+     ======================================== */
+    --accent-500: #E6FF94;
+    /* Bright lime yellow */
+    --accent-400: #EFFFAD;
+    /* Lighter lime */
+    --accent-600: #D4F070;
+    /* Darker lime */
+    --accent-300: #F3FFC6;
+    /* Very light lime */
+    --accent-700: #C2E04D;
+    /* Deep lime */
+    --accent-200: #F8FFDF;
+    /* Pastel lime */
+    --accent-100: #FCFFF0;
+    /* Very pale lime */
+
+    /* ========================================
+     NEUTRAL COLORS (Backgrounds & Borders)
+     ======================================== */
+    --neutral-white: #FFFFFF;
+    /* Pure white */
+    --neutral-50: #F8FAFC;
+    /* Off-white background */
+    --neutral-100: #F1F5F9;
+    /* Light gray background */
+    --neutral-200: #E2E8F0;
+    /* Border gray */
+    --neutral-300: #CBD5E1;
+    /* Subtle border */
+    --neutral-400: #94A3B8;
+    /* Placeholder text */
+    --neutral-500: #64748B;
+    /* Secondary text */
+    --neutral-600: #475569;
+    /* Body text */
+    --neutral-700: #334155;
+    /* Dark text */
+    --neutral-800: #1E293B;
+    /* Heading text */
+    --neutral-900: #0F172A;
+    /* Almost black */
+
+    /* ========================================
+     TEXT COLORS (High Contrast)
+     ======================================== */
+    --text-primary: #0F172A;
+    /* Main text - almost black */
+    --text-secondary: #475569;
+    /* Secondary text - gray */
+    --text-tertiary: #64748B;
+    /* Tertiary text - light gray */
+    --text-disabled: #94A3B8;
+    /* Disabled text */
+    --text-on-primary: #FFFFFF;
+    /* Text on primary color */
+    --text-on-secondary: #FFFFFF;
+    /* Text on secondary color */
+    --text-on-accent: #0F172A;
+    /* Text on accent color */
+
+    /* ========================================
+     BACKGROUND COLORS
+     ======================================== */
+    --bg-primary: #FFFFFF;
+    /* Main background */
+    --bg-secondary: #F8FAFC;
+    /* Secondary background */
+    --bg-tertiary: #F1F5F9;
+    /* Tertiary background */
+    --bg-elevated: #FFFFFF;
+    /* Cards, modals */
+    --bg-overlay: rgba(15, 23, 42, 0.6);
+    /* Modal overlay */
+
+    /* ========================================
+     SEMANTIC COLORS (Status & Feedback)
+     ======================================== */
+    /* Success */
+    --success-500: #10B981;
+    /* Success green */
+    --success-400: #34D399;
+    /* Light success */
+    --success-600: #059669;
+    /* Dark success */
+    --success-100: #D1FAE5;
+    /* Pale success */
+    --success-50: #ECFDF5;
+    /* Very pale success */
+
+    /* Warning */
+    --warning-500: #F59E0B;
+    /* Warning orange */
+    --warning-400: #FBBF24;
+    /* Light warning */
+    --warning-600: #D97706;
+    /* Dark warning */
+    --warning-100: #FEF3C7;
+    /* Pale warning */
+    --warning-50: #FFFBEB;
+    /* Very pale warning */
+
+    /* Error */
+    --error-500: #EF4444;
+    /* Error red */
+    --error-400: #F87171;
+    /* Light error */
+    --error-600: #DC2626;
+    /* Dark error */
+    --error-100: #FEE2E2;
+    /* Pale error */
+    --error-50: #FEF2F2;
+    /* Very pale error */
+
+    /* Info */
+    --info-500: #3B82F6;
+    /* Info blue */
+    --info-400: #60A5FA;
+    /* Light info */
+    --info-600: #2563EB;
+    /* Dark info */
+    --info-100: #DBEAFE;
+    /* Pale info */
+    --info-50: #EFF6FF;
+    /* Very pale info */
+
+    /* ========================================
+     BORDER COLORS
+     ======================================== */
+    --border-primary: #E2E8F0;
+    /* Main borders */
+    --border-secondary: #F1F5F9;
+    /* Subtle borders */
+    --border-focus: #25BA9A;
+    /* Focus state */
+    --border-error: #EF4444;
+    /* Error state */
+    --border-success: #10B981;
+    /* Success state */
+
+    /* ========================================
+     SHADOW COLORS
+     ======================================== */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-primary: 0 10px 25px -5px rgba(37, 186, 154, 0.3);
+    --shadow-accent: 0 10px 25px -5px rgba(230, 255, 148, 0.4);
+
+    /* ========================================
+     GRADIENT COLORS
+     ======================================== */
+    --gradient-primary: linear-gradient(135deg, #25BA9A 0%, #1FA885 100%);
+    --gradient-secondary: linear-gradient(135deg, #1A4D5E 0%, #0F3A48 100%);
+    --gradient-accent: linear-gradient(135deg, #E6FF94 0%, #D4F070 100%);
+    --gradient-hero: linear-gradient(135deg, #25BA9A 0%, #1A4D5E 100%);
+    --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.8) 100%);
+
+    /* ========================================
+     LEGACY COMPATIBILITY
+     (Maintaining existing variable names)
+     ======================================== */
+    --cw-white: #FFFFFF;
+    --cw-primary: #25BA9A;
+    --cw-accent: #E6FF94;
+}
+
+/* ========================================
+   DARK MODE SUPPORT (Optional)
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0F172A;
+        --bg-secondary: #1E293B;
+        --bg-tertiary: #334155;
+        --bg-elevated: #1E293B;
+
+        --text-primary: #F8FAFC;
+        --text-secondary: #CBD5E1;
+        --text-tertiary: #94A3B8;
+
+        --border-primary: #334155;
+        --border-secondary: #475569;
+
+        --neutral-50: #1E293B;
+        --neutral-100: #334155;
+        --neutral-200: #475569;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Background Colors */
+.bg-primary {
+    background-color: var(--primary-500) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-500) !important;
+}
+
+.bg-accent {
+    background-color: var(--accent-500) !important;
+}
+
+.bg-white {
+    background-color: var(--neutral-white) !important;
+}
+
+.bg-gray-50 {
+    background-color: var(--neutral-50) !important;
+}
+
+.bg-gray-100 {
+    background-color: var(--neutral-100) !important;
+}
+
+/* Text Colors */
+.text-primary {
+    color: var(--primary-500) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-500) !important;
+}
+
+.text-accent {
+    color: var(--accent-500) !important;
+}
+
+.text-dark {
+    color: var(--text-primary) !important;
+}
+
+.text-gray {
+    color: var(--text-secondary) !important;
+}
+
+.text-light-gray {
+    color: var(--text-tertiary) !important;
+}
+
+.text-white {
+    color: var(--neutral-white) !important;
+}
+
+/* Border Colors */
+.border-primary {
+    border-color: var(--primary-500) !important;
+}
+
+.border-secondary {
+    border-color: var(--secondary-500) !important;
+}
+
+.border-gray {
+    border-color: var(--border-primary) !important;
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+    background: var(--gradient-primary) !important;
+}
+
+.gradient-secondary {
+    background: var(--gradient-secondary) !important;
+}
+
+.gradient-accent {
+    background: var(--gradient-accent) !important;
+}
+
+.gradient-hero {
+    background: var(--gradient-hero) !important;
+}
+
+/* Shadow Utilities */
+.shadow-sm {
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.shadow-md {
+    box-shadow: var(--shadow-md) !important;
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.shadow-xl {
+    box-shadow: var(--shadow-xl) !important;
+}
+
+.shadow-primary {
+    box-shadow: var(--shadow-primary) !important;
+}
